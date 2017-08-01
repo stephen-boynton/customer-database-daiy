@@ -7,11 +7,10 @@ function grabInfo () {
     const location = peeps[i].location;
 
     infoArray[i] = {
-      image:    `<img src = ${peeps[i].picture.large}>`,
+      image:    `<div class = "image"><img src = ${peeps[i].picture.large}></div>`,
       name:     `<h1> ${name}</h1>`,
       email:    `<h2> ${peeps[i].email}</h2>`,
-      location: `<p> ${location.street}</p><p> ${location.city}, ${location.state} ${location.postcode}</p>`,
-      phone:     `${peeps[i].cell}`
+      location: `<div class="info"><p> ${location.street}</p><p> ${location.city}, ${location.state} ${location.postcode}</p>${peeps[i].cell}</div>`
     }
   }
   return infoArray;
@@ -24,20 +23,15 @@ function createProf () {
     const iName = infoArray[i].name;
     const iEmail = infoArray[i].email;
     const iLocation = infoArray[i].location;
-    const iPhone = infoArray[i].phone;
     const div = document.createElement("div");
 
     console.log(iName);
 
-    div.innerHTML = `${iPic} ${iName}${iEmail}${iLocation}${iPhone}`;
+    div.innerHTML = `${iPic} ${iName}${iEmail}${iLocation}`;
     div.setAttribute("class", "profile");
     container.appendChild(div);
   }
 }
-
-
-
-
 
 grabInfo();
 createProf();
